@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>web6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1></h1>
+    <header id="header">
+        <div class="contain">
+            <img src="logo.png" alt="Логотип" class="logo">
+            <nav id="nav">
+                <ul>
+                    <li><a href="#link1">Главная</a></li>
+                    <li><a href="#link2">О нас</a></li>
+                    <li><a href="#link3">Магазин</a></li>
+                    <li><a href="#link4">Корзина</a></li>
+                </ul>
+            </nav>
+            <h1>Счастье кота</h1>
+        </div>
+    </header>
+
+
+    <h2>Калькулятор стоимости услуги</h2>
+
+    <form id="calculator">
+        <label for="quantity">Количество:</label>
+        <input type="number" id="quantity" value="1" min="1" required>
+
+        <fieldset>
+            <legend>Тип услуги:</legend>
+            <label>
+                <input type="radio" name="serviceType" value="type1" checked> Сухарики
+            </label>
+            <label>
+                <input type="radio" name="serviceType" value="type2"> Чипсы
+            </label>
+            <label>
+                <input type="radio" name="serviceType" value="type3"> Добрый Кола 1,5 л.
+            </label>
+        </fieldset>
+
+        <div id="optionsContainer" class="hidden">
+            <label for="options">Выберите вес пачки</label>
+            <select id="options">
+                <option value="option1">140 грамм</option>
+                <option value="option2">160 грамм</option>
+                <option value="option3">180 грамм</option>
+            </select>
+        </div>
+
+        <div id="propertiesContainer" class="hidden">
+            <label>
+                <input type="checkbox" id="property"> Без сахара
+            </label>
+        </div>
+
+        <h2>Итоговая цена: <span id="totalPrice">0</span> руб.</h2>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
