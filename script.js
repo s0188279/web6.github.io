@@ -7,9 +7,9 @@ const propertyCheckbox = document.getElementById('property');
 const totalPriceDisplay = document.getElementById('totalPrice');
 
 let prices = {
-    type1: 50, // цена за единицу для типа 1
-    type2: 100, // цена за единицу для типа 2
-    type3: 130  // цена за единицу для типа 3
+    type1: 50, 
+    type2: 100, 
+    type3: 130  
 };
 
 function updatePrice() {
@@ -20,19 +20,19 @@ function updatePrice() {
     totalPrice = prices[selectedType] * quantity;
 
     if (selectedType === 'type2' && optionsSelect.value === 'option1') {
-        totalPrice += 0; // добавляем стоимость опции 1
+        totalPrice += 0; 
     }
 
     if (selectedType === 'type2' && optionsSelect.value === 'option2') {
-        totalPrice += 50; // добавляем стоимость опции 2
+        totalPrice += 50; 
     }
 
     if (selectedType === 'type2' && optionsSelect.value === 'option3') {
-        totalPrice += 50; // добавляем стоимость опции 3
+        totalPrice += 50; 
     }
 
     if (selectedType === 'type3' && propertyCheckbox.checked) {
-        totalPrice += 50; // добавляем стоимость свойства
+        totalPrice += 50; 
     }
 
     totalPriceDisplay.textContent = totalPrice;
@@ -50,10 +50,9 @@ function updateForm() {
         propertiesContainer.classList.remove('hidden');
     }
 
-    updatePrice(); // пересчитываем цену при смене типа услуги
+    updatePrice(); 
 }
 
-// Слушатели событий
 quantityInput.addEventListener('input', updatePrice);
 serviceTypeRadios.forEach(radio => {
     radio.addEventListener('change', updateForm);
@@ -61,5 +60,4 @@ serviceTypeRadios.forEach(radio => {
 optionsSelect.addEventListener('change', updatePrice);
 propertyCheckbox.addEventListener('change', updatePrice);
 
-// Инициализация формы
 updateForm();
