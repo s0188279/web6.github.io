@@ -5,6 +5,7 @@ const optionsSelect = document.getElementById('options');
 const propertiesContainer = document.getElementById('propertiesContainer');
 const propertyCheckbox = document.getElementById('property');
 const totalPriceDisplay = document.getElementById('totalPrice');
+const errorMessageDisplay = document.getElementById('error-message');
 let prices = {    type1: 50, 
     type2: 100,     type3: 130  
 };
