@@ -11,6 +11,12 @@ let prices = {    type1: 50,
 function updatePrice() {    
     let totalPrice = 0;
     const quantity = parseInt(quantityInput.value);    
+    if (isNaN(quantity) || quantity < 0) {
+        errorMessageDisplay.textContent = "Ошибка: количество не может быть отрицательным.";
+        totalPriceDisplay.textContent = "";
+        return;
+    }
+    errorMessageDisplay.textContent = ""; // Очистка сообщения об ошибке
     const selectedType = document.querySelector('input[name="serviceType"]:checked').value;
     totalPrice = prices[selectedType] * quantity;
     if (selectedType === 'type2' && optionsSelect.value === 'option1') {
