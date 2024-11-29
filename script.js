@@ -5,62 +5,42 @@ const optionsSelect = document.getElementById('options');
 const propertiesContainer = document.getElementById('propertiesContainer');
 const propertyCheckbox = document.getElementById('property');
 const totalPriceDisplay = document.getElementById('totalPrice');
-const errorMessageDisplay = document.getElementById('errorMessage'); // Добавляем элемент для отображения сообщения об ошибке
-
-let prices = {
-    type1: 50,
-    type2: 100,
-    type3: 130
+let prices = {    type1: 50, 
+    type2: 100,     type3: 130  
 };
-
-function updatePrice() {
+function updatePrice() {    
     let totalPrice = 0;
-    const quantity = parseInt(quantityInput.value);
-
-    // Проверка на отрицательное значение
-    if (quantity < 0) {
-        errorMessageDisplay.textContent = "Ошибка: количество не может быть отрицательным."; // Выводим сообщение об ошибке
-        totalPriceDisplay.textContent = ""; // Очищаем цену
-        return; // Выходим из функции
-    } else {
-        errorMessageDisplay.textContent = ""; // Очищаем сообщение об ошибке, если ввод корректен
-    }
-
+    const quantity = parseInt(quantityInput.value);    
     const selectedType = document.querySelector('input[name="serviceType"]:checked').value;
     totalPrice = prices[selectedType] * quantity;
-
     if (selectedType === 'type2' && optionsSelect.value === 'option1') {
-        totalPrice += 0;
+        totalPrice += 0;     
     }
     if (selectedType === 'type2' && optionsSelect.value === 'option2') {
-        totalPrice += 50;
+        totalPrice += 50;     
     }
     if (selectedType === 'type2' && optionsSelect.value === 'option3') {
-        totalPrice += 50;
+        totalPrice += 50;     
     }
     if (selectedType === 'type3' && propertyCheckbox.checked) {
-        totalPrice += 50;
+        totalPrice += 50;     
     }
-    
     totalPriceDisplay.textContent = totalPrice;
 }
-
-function updateForm() {
+function updateForm() {    
     const selectedType = document.querySelector('input[name="serviceType"]:checked').value;
     optionsContainer.classList.add('hidden');
     propertiesContainer.classList.add('hidden');
-
-    if (selectedType === 'type2') {
+    if (selectedType === 'type2') {        
         optionsContainer.classList.remove('hidden');
-    } else if (selectedType === 'type3') {
+    } 
+    else if (selectedType === 'type3') {        
         propertiesContainer.classList.remove('hidden');
     }
-
-    updatePrice();
+    updatePrice(); 
 }
-
 quantityInput.addEventListener('input', updatePrice);
-serviceTypeRadios.forEach(radio => {
+serviceTypeRadios.forEach(radio => {    
     radio.addEventListener('change', updateForm);
 });
 optionsSelect.addEventListener('change', updatePrice);
